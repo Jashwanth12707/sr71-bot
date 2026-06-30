@@ -1,5 +1,6 @@
 from pathlib import Path
 from pypdf import PdfReader
+from ocr import load_scanned_pdf
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data" / "raw"
@@ -33,6 +34,10 @@ def load_documents():
 
         if file.suffix.lower() == ".pdf":
             text = load_pdf(file)
+
+            if not text.strip():
+                print(f"Ocr Fallback:{file.name}")
+                text=load_scanned_pdf(file)
 
         elif file.suffix.lower() == ".txt":
             text = load_txt(file)
