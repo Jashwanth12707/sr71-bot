@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer
 
-from embeddings import load_model
-from vectordb import search
+from rag.embeddings import load_model
+from rag.vectordb import search
 
 
 def embed_query(
@@ -59,6 +59,11 @@ if __name__ == "__main__":
             model,
         )
 
+        print("\nRAW RESULTS:\n")
+        print(results)
+        print("Documents:", results["documents"])
+        print("Metadatas:", results["metadatas"])
+        print("Distances:", results["distances"])
         print("\nTop Matching Chunks\n")
 
         documents = results["documents"][0]

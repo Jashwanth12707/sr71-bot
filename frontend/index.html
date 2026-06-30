@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SR-71 Blackbird AI — Ask the Blackbird</title>
+    <meta name="description" content="An AI-powered assistant that answers any question about the legendary SR-71 Blackbird reconnaissance aircraft." />
+
+    <!-- Google Fonts — Inter for clean modern type -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+    <!-- Full-screen SR-71 background image -->
+    <div class="bg-image" aria-hidden="true"></div>
+
+    <!-- Animated gradient overlay -->
+    <div class="bg-overlay" aria-hidden="true"></div>
+
+    <!-- Scanline effect -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- Main chat container -->
+    <main class="chat-container" id="chatContainer">
+
+        <!-- Header -->
+        <header class="chat-header" id="chatHeader">
+            <div class="header-badge">
+                <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                <span class="badge-label">CLASSIFIED</span>
+            </div>
+            <h1 class="chat-title">
+                <span class="title-accent">SR-71</span> BLACKBIRD AI
+            </h1>
+            <p class="chat-subtitle">Ask anything about the world's fastest reconnaissance aircraft.</p>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-value">Mach 3.3</span>
+                    <span class="stat-label">Top Speed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value">85,000 ft</span>
+                    <span class="stat-label">Altitude</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value">RAG</span>
+                    <span class="stat-label">Powered</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Messages area -->
+        <section class="chat-messages" id="chatMessages" aria-live="polite" aria-label="Chat messages">
+            <!-- Welcome card -->
+            <div class="welcome-card" id="welcomeCard">
+                <div class="welcome-icon-wrap">
+                    <svg class="welcome-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+                <h2 class="welcome-title">Ready for Briefing</h2>
+                <p class="welcome-text">Ask me about the SR-71's engineering, missions, performance specs, or history. I'll search through declassified documents to find the answer.</p>
+                <div class="welcome-suggestions">
+                    <button class="suggestion-chip" data-question="What type of engines did the SR-71 use?">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        What engines did the SR-71 use?
+                    </button>
+                    <button class="suggestion-chip" data-question="What was the maximum speed of the SR-71 Blackbird?">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        What was the SR-71's max speed?
+                    </button>
+                    <button class="suggestion-chip" data-question="How did the SR-71 handle thermal expansion at high speeds?">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                        How did it handle thermal expansion?
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Input area -->
+        <footer class="chat-input-area" id="chatInputArea">
+            <form class="input-wrapper" id="chatForm" autocomplete="off">
+                <textarea
+                    id="chatInput"
+                    class="chat-input"
+                    placeholder="Ask the Blackbird …"
+                    rows="1"
+                    aria-label="Type your question"
+                    maxlength="2000"
+                ></textarea>
+                <button type="submit" class="send-btn" id="sendBtn" aria-label="Send message" disabled>
+                    <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </form>
+            <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift + Enter</kbd> for new line</p>
+        </footer>
+
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

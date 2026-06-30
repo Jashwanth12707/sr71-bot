@@ -2,7 +2,11 @@ from typing import List
 
 import chromadb
 
-DB_PATH = "chroma_db"
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+DB_PATH = str(PROJECT_ROOT / "chroma_db")
 COLLECTION_NAME = "sr71_documents"
 
 
